@@ -2,18 +2,28 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
 
-    <!--数据库驱动包位置-->
-    <!--<classPathEntry location="/Users/jpliu/Downloads/mysql-connector-java/mysql-connector-java-5.1.47.jar"/>-->
+    <!--配置文件路径-->
+
+    <!--数据库驱动包路径-->
+    <classPathEntry location="/Users/jpliu/Downloads/mysql-connector-java/mysql-connector-java-5.1.47.jar"/>
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <!--关闭注释-->
         <commentGenerator>
+            <property name="suppressDate" value="true"/>
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
-        <!--数据库连接URL， 用户名，密码 -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/questionAnswer?useUnicode=true?characterEncoding=utf8?useSSL=false"
-                        userId="root"
-                        password="root"/>
+
+        <!--数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/questionAnswer?characterEncoding=utf8"
+                        userId="root" password="root"/>
+        
+        <!--指定生成类型为Java类型，避免数据库中number等类型字段-->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
         <!--生成模型的包名和位置-->
         <javaModelGenerator targetPackage="com.jpliu.model" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
