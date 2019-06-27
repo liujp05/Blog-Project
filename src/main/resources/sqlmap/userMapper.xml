@@ -209,4 +209,15 @@
       head_url = #{headUrl,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--自定义sql-->
+  <sql id="table">user</sql>
+  <sql id="selectFields">id, name, password, salt, head_url</sql>
+  <select id="selectByName" resultType="com.jpliu.model.user">
+    select
+    <include refid="selectFields" />
+    from
+    <include refid="table"/>
+    where name=${username}}
+  </select>
 </mapper>

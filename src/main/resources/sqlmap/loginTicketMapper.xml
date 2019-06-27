@@ -209,4 +209,14 @@
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--自定义sql-->
+  <sql id="table">login_ticket</sql>
+  <sql id="selectFields">user_id, expired, status, ticket</sql>
+  <update id="updateStatus" >
+    update 
+    <include refid="table"/>
+    set status=#{status}
+    where ticket=#{ticket}
+  </update>
 </mapper>

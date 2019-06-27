@@ -27,4 +27,6 @@ public interface loginTicketMapper {
     int updateByPrimaryKeySelective(loginTicket record);
 
     int updateByPrimaryKey(loginTicket record);
+
+    void updateStatus(@Param("ticket") String ticket, @Param("status") Integer status);
 }
