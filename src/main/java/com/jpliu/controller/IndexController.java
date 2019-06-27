@@ -12,6 +12,6 @@ public class IndexController {
     @RequestMapping("/hello")
     public String hello(Map<String, Object> map) {
         map.put("title", "Hello Freemarker");
-        return "header";
+        return "index";
     }
 }
